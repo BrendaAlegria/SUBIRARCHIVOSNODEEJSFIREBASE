@@ -1,0 +1,49 @@
+<%- include ("../templates/encabezado")%>
+<%- include ("../templates/menu")%>
+<br>
+<br>
+ <div class="container" mt-5>
+    <div class="card">
+        <div class="car-header">
+            <center><h1>Productos</h1></center>
+            <br>
+        </div>
+        <div class="car-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th><center>Id</center></th>
+                        <th><center>Nombre</center></th>
+                        <th><center>Precio</center></th>
+                        <th><center>Cantidad</center></th>
+                        <th><center>Foto</center></th>
+                        <th><center>Editar / Borrar</center></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%
+                    productos.forEach((producto)=>{
+                    %>
+                    <tr> 
+                        <td><center><%= producto.id %></center></td>
+                        <td><center><%= producto.nombre %></center></td>
+                        <td><center><%= producto.precio %></center></td>
+                        <td><center><%= producto.cantidad %></center></td>
+                        <td><center><img src="/images/<%= producto.foto %>" width="150px"></center></td>
+                        <td><center>
+                            <a href="/productos/editarP/<%= producto.id %>">Editar</a>
+                            <a href="/productos/borrarP/<%= producto.id %>">Borrar</a>
+                        </center>
+                            
+                        </td>
+                    </tr>
+                    <%
+                    });
+                    %>
+                </tbody>
+            </table>
+        </div>
+        <div class="car-footer"></div>
+    </div>
+ </div>
+<%- include ("../templates/pie")%>
